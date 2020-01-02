@@ -1,5 +1,7 @@
-//calculate tips
+//functionality used to calculate tips
 function calculateTip(){
+    //defining all the required variables and initiating them
+
     var billamount=document.getElementById("billamount").value;
     var servicerating=document.getElementById("servicerating").value;
     var numofpeople=document.getElementById("people").value;
@@ -10,7 +12,8 @@ function calculateTip(){
         return;
 
     }
-    //checking the number of people input is empty or just one
+
+    //checking whether the number of people is empty or just one
     if(numofpeople==" "||numofpeople<=1){
         numofpeople=1;
         document.getElementById("each").style.display="none";
@@ -18,13 +21,15 @@ function calculateTip(){
         document.getElementById("each").style.display="block";
     }
 
-    //tips calculation
+    // calculating tips amount
     var total=(billamount*servicerating) / numofpeople;
     //rounding to two decimal places
     total=Math.round(total*100) / 100;
+
     total=total.toFixed(2); //to always have two digits after decimal point
    // document.write(total);
     document.getElementById("totaltip").style.display="block";
+
     document.getElementById("tip").innerHTML=total;
 }
 
